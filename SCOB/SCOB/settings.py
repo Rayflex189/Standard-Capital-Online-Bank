@@ -130,6 +130,9 @@ STATICFILES_DIRS = [
     # Add more directories if needed
 ]
 
+# Define STATIC_ROOT to collect static files for production and staging
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 # Directory where Django will collect static files for deployment
 MEDIA_URL = '/external_st/'
 
