@@ -131,8 +131,6 @@ STATICFILES_DIRS = [
 ]
 
 # Directory where Django will collect static files for deployment
-STATIC_ROOT = '/home/heritageonlinebank1/heritage/HCIP/staticfiles/'
-
 MEDIA_URL = '/external_st/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/external_st')
