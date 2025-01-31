@@ -122,9 +122,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 if not DEBUG:
-    # Define STATIC_ROOT to collect static files for production and staging
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'static/external_st')
+    
     # Use WhiteNoise storage for production
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
@@ -144,6 +142,8 @@ STATICFILES_DIRS = [
 
 # Directory where Django will collect static files for deployment
 MEDIA_URL = '/external_st/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/external_st')
 
 
 # Default primary key field type
