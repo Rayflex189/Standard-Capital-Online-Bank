@@ -121,8 +121,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Define STATIC_ROOT to collect static files for production and staging
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 if not DEBUG:
-    
     # Use WhiteNoise storage for production
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
