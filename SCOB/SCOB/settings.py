@@ -114,7 +114,8 @@ USE_I18N = True
 
 USE_TZ = True
 
-
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+import os
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
@@ -128,8 +129,8 @@ if not DEBUG:
     # Use WhiteNoise storage for production
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-import os
+
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Additional locations of static files
