@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
@@ -118,9 +119,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 if not DEBUG:
+    # Define STATIC_ROOT to collect static files for production and staging
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'static/external_st')
     # Use WhiteNoise storage for production
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
@@ -136,13 +140,10 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static', 'js'),
 ]
 
-# Define STATIC_ROOT to collect static files for production and staging
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 # Directory where Django will collect static files for deployment
 MEDIA_URL = '/external_st/'
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/external_st')
 
 
 # Default primary key field type
