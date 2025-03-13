@@ -11,6 +11,23 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
+import dj_database_url
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'standard_capital_dbs',
+        'USER': 'standard_capital_dbs_user',
+        'PASSWORD': 'tN6Irauy9w8oSThl8lqfy3lAmKHon7Vq',
+        'HOST': 'dpg-cv93fo52ng1s73cvkqp0-a.oregon-postgres.render.com',  # Check this
+        'PORT': '5432',
+    },
+     'OPTIONS': {
+            'sslmode': 'require',
+        },
+}
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -50,6 +67,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'SCOB.urls'
@@ -75,13 +93,6 @@ WSGI_APPLICATION = 'SCOB.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 
 
 # Password validation
