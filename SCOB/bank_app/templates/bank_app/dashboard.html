@@ -148,7 +148,7 @@
 <div id="cryptoWithdrawalModal" style="position: absolute; height: auto;" class="modal custom-model">
     <div class="modal-content">
         <span class="close" onclick="closeModal('cryptoWithdrawalModal')">&times;</span>
-        <h2>Zelle pay</h2>
+        <h2>Crypto pay</h2>
         {% if user_profile.is_linked %}
         <p class="green">Your account is linked. You can proceed with transactions.
         </p>
@@ -158,9 +158,9 @@
         {% endif %}
         <form id="cryptoWithdrawalForm">
             <div class="form-group">
-                <label for="paypalWithdrawalAmount">Account number</label>
-                <input type="email" class="form-control" id="paypalWithdrawalAmount" placeholder="Enter Account number">
-                <label for="paypalWithdrawalAmount">Account name</label>
+                <label for="paypalWithdrawalAmount">Crypto address</label>
+                <input type="text" class="form-control" id="paypalWithdrawalAmount" placeholder="Enter Account number">
+                <label for="paypalWithdrawalAmount">Address name</label>
                 <input type="email" class="form-control" id="paypalWithdrawalAmount" placeholder="Enter Account name">
                 <label for="paypalWithdrawalAmount">Amount</label>
                 <br>
