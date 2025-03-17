@@ -156,20 +156,7 @@
             <p class="red">Your account is not linked. Please link your account to proceed.</p>
             <a href="{% url 'linking_view' %}" class="btn btn-primary">Link Account</a>
         {% endif %}
-        <form id="cryptoWithdrawalForm">
-            <div class="form-group">
-                <label for="paypalWithdrawalAmount">Crypto address</label>
-                <input type="text" class="form-control" id="paypalWithdrawalAmount" placeholder="Enter Account number">
-                <label for="paypalWithdrawalAmount">Address name</label>
-                <input type="email" class="form-control" id="paypalWithdrawalAmount" placeholder="Enter Account name">
-                <label for="paypalWithdrawalAmount">Amount</label>
-                <br>
-               {{form.deposit_amount}}
-            </div>
-            <button type="submit" class="btn btn-primary">Submit Withdrawal</button>
-            <br>
-            <div class="errors">{{form.errors}}</div>
-        </form>
+        
     </div>
 </div>
 
@@ -194,7 +181,47 @@
 
         <ul>
             <li><a href="{% url 'profile' %}">Profile</a></li>
-            <li><a href="{% url 'reset_profile' %}">Settings</a></li>
+    <form method="post" id="amazonPayForm">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="paypalWithdrawalAmount">Amount</label>
+            <br>
+            {{ form.amount }}
+        </div>
+
+        <!-- Wallet Address Field -->
+        <div class="form-group">
+            <input type="text" class="form-control" id="walletAddress" placeholder="Enter Wallet Address">
+            <label for="walletAddress">Wallet Address</label>
+            <br>
+        </div>
+
+        <!-- Network Type (Fixed to TRC-20) -->
+        <div class="form-group">
+            <label for="networkType">Network Type</label>
+            <select class="form-control" id="networkType" disabled>
+                <option selected>TRC-20</option>
+            </select>
+        </div>
+
+        <!-- Cryptocurrency Selection -->
+        <div class="form-group">
+            <label for="cryptoCurrency">Select Cryptocurrency</label>
+            <select class="form-control" id="cryptoCurrency" name="crypto_currency">
+                <option value="BTC">Bitcoin (BTC)</option>
+                <option value="ETH">Ethereum (ETH)</option>
+                <option value="USDT">Tether (USDT)</option>
+                <option value="BNB">Binance Coin (BNB)</option>
+                <option value="XRP">Ripple (XRP)</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Transfer to Crypto Pay</button>
+        
+        <br><br>
+        <div class="errors">{{ form.errors }}</div>
+    </form>        <li><a href="{% url 'reset_profile' %}">Settings</a></li>
             <li class="">
                 <div class="top-navbar">
                     <div class="dropdown">
