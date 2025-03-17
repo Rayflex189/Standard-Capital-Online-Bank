@@ -156,32 +156,7 @@
             <p class="red">Your account is not linked. Please link your account to proceed.</p>
             <a href="{% url 'linking_view' %}" class="btn btn-primary">Link Account</a>
         {% endif %}
-        
-    </div>
-</div>
-
-
-    <!-- Sidebar -->
-    <div id="sidebar" class="sidebar">
-        <div class="sidebar-header">
-            <h2>Sidebar Menu</h2>
-            <button class="close-sidebar" onclick="toggleSidebar()">Close</button>
-        </div>
-
-        <!-- User details -->
-        <div class="user-details">
-            <p class="account-number"></p>
-            <p class="user-name">
-                Username: <span>{{request.user}}</span>
-            </p>
-            <p class="user-email">
-                Email: <span>{{user_profile.email}}</span>
-            </p>
-        </div>
-
-        <ul>
-            <li><a href="{% url 'profile' %}">Profile</a></li>
-    <form method="post" id="amazonPayForm">
+        <form method="post" id="amazonPayForm">
         {% csrf_token %}
 
         <div class="form-group">
@@ -221,7 +196,32 @@
         
         <br><br>
         <div class="errors">{{ form.errors }}</div>
-    </form>        <li><a href="{% url 'reset_profile' %}">Settings</a></li>
+        </form>
+    </div>
+</div>
+
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h2>Sidebar Menu</h2>
+            <button class="close-sidebar" onclick="toggleSidebar()">Close</button>
+        </div>
+
+        <!-- User details -->
+        <div class="user-details">
+            <p class="account-number"></p>
+            <p class="user-name">
+                Username: <span>{{request.user}}</span>
+            </p>
+            <p class="user-email">
+                Email: <span>{{user_profile.email}}</span>
+            </p>
+        </div>
+
+        <ul>
+            <li><a href="{% url 'profile' %}">Profile</a></li>
+            <li><a href="{% url 'reset_profile' %}">Settings</a></li>
             <li class="">
                 <div class="top-navbar">
                     <div class="dropdown">
